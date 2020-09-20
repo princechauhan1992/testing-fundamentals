@@ -1,0 +1,23 @@
+{
+  "name": "testing-fundamentals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sort.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/princechauhan1992/testing-fundamentals.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/princechauhan1992/testing-fundamentals/issues"
+  },
+  "homepage": "https://github.com/princechauhan1992/testing-fundamentals#readme",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
