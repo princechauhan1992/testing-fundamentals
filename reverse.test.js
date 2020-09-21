@@ -1,6 +1,6 @@
 const { TestResult } = require("@jest/types");
 //Pass parameter as number- 12345- Throw error
-//Empty parameter
+//Empty parameter- It should return the empty string
 //Enter whitespace between string- REVE RSE- ESR EVER
 //Add special characters- REVE$RSE- ESR$EVER
 //Pass string as a parameter- REVERSE- ESREVER
