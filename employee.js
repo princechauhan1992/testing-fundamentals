@@ -15,47 +15,58 @@
 // }
 
 class employee {
-
-    var employeeList = [
+  constructor() {
+    this.employeeList = [
       { name: "Ram", salary: 30000 },
       { name: "Shyam", salary: 40000 },
       { name: "Tanu", salary: 50000 },
     ];
-    let arraylength = employeeList.length;
+  }
 
-    // Return true if add succeeds else throw error
-    function addEmployee(name, salary) {
-      employeeList.push(name, salary);
-      if (arraylength < employeeList.length) {
-        console.log(true);
-      } else {
-        throw new Error("Unsuccessfull");
-      }
+  addEmployee(name, salary) {
+    if (
+      this.employeeList.find(function (elm) {
+        if (elm.name == name) {
+          return true;
+        }
+      })
+    ) {
+      throw new Error("Duplicate name");
     }
-    // Return employee list sorted by salaries
-    function getEmployeeList(employeeList) {
-      for (let i = 0; i < employeeList.length; i++) {
-        for (let j = i + 1; j < employeeList.length; j++) {
-          if (employeeList.salary[i] > employeeList.salary[j]) {
-            let x = employeeList.salary[i];
-            employeeList.salary[i] = employeeList.salary[j];
-            employeeList.salary[j] = x;
-          }
+    if (typeof name !== "string" || typeof salary !== "number") {
+      throw new Error("name must be a string, received:" + typeof name);
+    }
+
+    this.employeeList.push({ name, salary });
+    return true;
+  }
+
+  // Return employee list sorted by salaries
+  getEmployeeList() {
+    for (let i = 0; i < this.employeeList.length; i++) {
+      for (let j = i + 1; j < this.employeeList.length; j++) {
+        if (this.employeeList[i].salary > this.employeeList[j].salary) {
+          let x = this.employeeList[i];
+          this.employeeList[i] = employeeList[j];
+          this.employeeList[j] = x;
         }
       }
     }
+    return this.employeeList;
+  }
 
-    // Return true if delete succeeds else throw error
-    function removeEmployee() {
-      delete employeeList[employeeList.length - 1];
-      if (employeeList.length == employeeList) {
-        console.log(true);
-      } else {
-        throw new Error(" Element not deleted");
+  // Return true if delete succeeds else throw error
+  removeEmployee(name) {
+    for (var i in this.employeeList) {
+      if (this.employeeList[i].name == name) {
+        this.employeeList.splice(i, 1);
       }
     }
-    addEmployee("manu", 60000);
-    getEmployeeList(employeeList);
-    removeEmployee();
-  
+  }
 }
+
+let employeeData = new employee();
+employeeData.addEmployee("abc", 60000);
+console.log(employeeData.getEmployeeList());
+employeeData.removeEmployee("Ram");
+console.log(employeeData.getEmployeeList());
