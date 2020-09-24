@@ -16,11 +16,7 @@
 
 class employee {
   constructor() {
-    this.employeeList = [
-      { name: "Ram", salary: 30000 },
-      { name: "Shyam", salary: 40000 },
-      { name: "Tanu", salary: 50000 },
-    ];
+    this.employeeList = [];
   }
 
   addEmployee(name, salary) {
@@ -31,10 +27,10 @@ class employee {
         }
       })
     ) {
-      throw new Error("Duplicate name");
+      throw new Error('Duplicate name');
     }
-    if (typeof name !== "string" || typeof salary !== "number") {
-      throw new Error("name must be a string, received:" + typeof name);
+    if (typeof name !== 'string' || typeof salary !== 'number') {
+      throw new Error('name must be a string, received:' + typeof name);
     }
 
     this.employeeList.push({ name, salary });
@@ -65,8 +61,4 @@ class employee {
   }
 }
 
-let employeeData = new employee();
-employeeData.addEmployee("abc", 60000);
-console.log(employeeData.getEmployeeList());
-employeeData.removeEmployee("Ram");
-console.log(employeeData.getEmployeeList());
+module.exports = employee;
